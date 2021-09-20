@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Author;
-use Illuminate\Support\Facades\Auth;//追記
+use Illuminate\Support\Facades\Auth;
 
 
 class AuthorController extends Controller
@@ -73,7 +73,24 @@ class AuthorController extends Controller
 
     public function relate(Request $request)
     {
-        $items = Author::all();
+        $items = Author::simplePaginate(4);
         return view('author.index', ['items' => $items]);
+    }
+    public function check(request $request)
+    {
+        $text = ['text' => 'ログインしてください。'];
+        return view('auth',$text);
+    }
+
+    public function checkUser(Request $request)
+    {
+        $email = $request->email;
+        $password = $request->password;
+        if(Auth::attempt(['email' => $email,'password' => $password])) {
+            $text = Auth::user()->name.'さんがログインしました';
+        }else{
+            $text = 'ログインに失敗しました';
+        }
+        return view('auth',['text' => $text]);
     }
 }
