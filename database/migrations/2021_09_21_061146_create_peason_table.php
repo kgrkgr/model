@@ -20,7 +20,7 @@ class CreatePeasonTable extends Migration
             $table->string('nationality', 100);
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->timestamp('updated_at')->useCurrent()->nullable();
-            $table->softDaletes();
+            $table->softDeletes();
         });
     }
 

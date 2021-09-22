@@ -18,21 +18,21 @@ class personTableSeeder extends Seeder
             'name' => 'tony',
             'age' => 35,
         ];
-        DB::table('peason')->insert($param);
+        DB::table('people')->insert($param);
         $param = [
             'name' => 'jack',
             'age' => 20,
         ];
-        DB::table('peason')->insert($param);
+        DB::table('people')->insert($param);
         $param = [
             'name' => 'sara',
             'age' => 45,
         ];
-        DB::table('peason')->insert($param);
+        DB::table('people')->insert($param);
         $param = [
             'name' => 'saly',
             'age' => 31,
         ];
-        DB::table('peason')->insert($param);
+        DB::table('people')->insert($param);
     }
 }

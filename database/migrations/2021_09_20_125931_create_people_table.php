@@ -19,6 +19,7 @@ class CreatePeopleTable extends Migration
             $table->integer('age');
             $table->timestamp('created_at')->userCurrent()->nullable();
             $table->timestamp('updated_at')->userCurrent()->nullable();
+            $table->softDeletes();
         });
     }
 
