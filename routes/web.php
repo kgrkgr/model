@@ -39,6 +39,6 @@ require __DIR__.'/auth.php';
 Route::get('/auth',[AuthorController::class,'check']);
 Route::post('/auth',[AuthorController::class,'checkUser']);
 
-Route::get('/softdelate',function(){
-    person::find(1)->delete();
+Route::get('/softdelete',function(){
+    Person::find(1)->delete();
 });
